@@ -268,38 +268,71 @@
     }
     .success-back:hover { background: var(--gold); }
 
-    .alt-contact {
+    .alt-contact-wrap {
       margin-top: 36px;
-      padding: 24px;
       background: #fff;
       border: 1px solid var(--line);
+      padding: 28px 24px 24px;
+    }
+    .alt-contact-head {
       text-align: center;
+      margin-bottom: 22px;
     }
     .alt-contact-eyebrow {
       font-family: 'Cormorant Garamond', serif;
       font-size: 11px;
       letter-spacing: 0.3em;
       color: var(--gold);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
-    .alt-contact-title {
+    .alt-contact-head-title {
       font-family: 'Noto Serif JP', serif;
       font-size: 14px;
       color: var(--ink-soft);
-      margin-bottom: 14px;
+      letter-spacing: 0.04em;
+    }
+    .alt-contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 600px) {
+      .alt-contact-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
+    }
+    .alt-contact-card {
+      text-align: center;
+      padding: 18px 14px;
+      border: 1px solid var(--line-soft);
+      background: var(--paper);
+    }
+    .alt-contact-label {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
     }
     .alt-contact-tel {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      letter-spacing: 0.06em;
+      font-size: 24px;
+      letter-spacing: 0.05em;
       color: var(--ink);
       text-decoration: none;
       font-weight: 600;
-      display: inline-block;
-      margin-bottom: 8px;
+      display: block;
+      margin-bottom: 4px;
     }
     .alt-contact-tel:hover { color: var(--gold); }
-    .alt-contact-charge { font-size: 12px; color: var(--ink-mute); }
+    .alt-contact-mail {
+      font-size: 12px;
+      color: var(--ink-mute);
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 4px;
+    }
+    .alt-contact-mail:hover { color: var(--gold); }
+    .alt-contact-charge { font-size: 11px; color: var(--ink-mute); margin-top: 6px; }
 
     .doc-footer {
       text-align: center;
@@ -404,11 +437,25 @@
       <a href="/company.html" class="success-back">会社概要を見る</a>
     </div>
 
-    <div class="alt-contact">
-      <div class="alt-contact-eyebrow">PHONE</div>
-      <div class="alt-contact-title">お電話でのお問い合わせ</div>
-      <a href="tel:080-2848-2881" class="alt-contact-tel">080-2848-2881</a>
-      <div class="alt-contact-charge">開設準備室／担当：豊嶋</div>
+    <div class="alt-contact-wrap">
+      <div class="alt-contact-head">
+        <div class="alt-contact-eyebrow">DIRECT CONTACT</div>
+        <div class="alt-contact-head-title">お電話でも承っております</div>
+      </div>
+      <div class="alt-contact-grid">
+        <div class="alt-contact-card">
+          <div class="alt-contact-label">代表直通</div>
+          <a href="tel:090-7068-5817" class="alt-contact-tel">090-7068-5817</a>
+          <a href="mailto:info@hana-hiro.com" class="alt-contact-mail">info@hana-hiro.com</a>
+          <div class="alt-contact-charge">代表取締役 塙 啓之</div>
+        </div>
+        <div class="alt-contact-card">
+          <div class="alt-contact-label">poem de riha 安積店</div>
+          <a href="tel:080-2848-2881" class="alt-contact-tel">080-2848-2881</a>
+          <a href="mailto:toyoshima@hana-hiro.com" class="alt-contact-mail">toyoshima@hana-hiro.com</a>
+          <div class="alt-contact-charge">開設準備室／担当：豊嶋</div>
+        </div>
+      </div>
     </div>
 
     <div class="doc-footer">
