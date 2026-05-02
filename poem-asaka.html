@@ -835,6 +835,54 @@
     }
     .contact-block .mail-line a { color: var(--gold-soft); text-decoration: none; }
 
+    .contact-form-cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 560px;
+      margin: 24px auto 0;
+      padding: 18px 24px;
+      background: #fff;
+      border: 1px solid var(--gold-soft);
+      color: var(--ink);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .contact-form-cta:hover {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+    .contact-form-cta .ccta-icon {
+      font-size: 22px;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .contact-form-cta:hover .ccta-icon { color: var(--gold-soft); }
+    .contact-form-cta .ccta-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .contact-form-cta .ccta-body strong {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .contact-form-cta .ccta-body em {
+      font-size: 12px;
+      font-style: normal;
+      opacity: 0.8;
+      letter-spacing: 0.02em;
+    }
+    .contact-form-cta .ccta-arrow {
+      font-size: 18px;
+      opacity: 0.6;
+    }
+    .contact-form-cta:hover .ccta-arrow { opacity: 1; }
+
     /* footer */
     .doc-footer {
       text-align: center;
@@ -1700,10 +1748,19 @@
           <a href="mailto:toyoshima@hana-hiro.com">toyoshima@hana-hiro.com</a>
         </div>
         <div class="print-only-qr">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fwww.hana-hiro.com%2Fcontact%2F" alt="QR お問い合わせフォーム">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Finfo.hana-hiro.com%2Fcontact.html" alt="QR お問い合わせフォーム">
           <div style="font-family:'Cormorant Garamond',serif;font-size:9pt;letter-spacing:0.2em;color:var(--gold-soft);margin-top:3mm">お問い合わせフォーム</div>
         </div>
       </div>
+
+      <a href="/contact.html" class="contact-form-cta no-print">
+        <span class="ccta-icon">✉</span>
+        <span class="ccta-body">
+          <strong>お問い合わせフォームから連絡する</strong>
+          <em>見学・体験・資料請求のお申し込み</em>
+        </span>
+        <span class="ccta-arrow">→</span>
+      </a>
     </section>
 
     <!-- 10 採用情報 -->

@@ -689,6 +689,28 @@
       letter-spacing: 0.08em;
       margin: 8px 0 4px;
     }
+    .contact-form-cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 560px;
+      margin: 24px auto 0;
+      padding: 18px 24px;
+      background: #fff;
+      border: 1px solid var(--gold-soft);
+      color: var(--ink);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .contact-form-cta:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .contact-form-cta .ccta-icon { font-size: 22px; color: var(--gold); line-height: 1; }
+    .contact-form-cta:hover .ccta-icon { color: var(--gold-soft); }
+    .contact-form-cta .ccta-body { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+    .contact-form-cta .ccta-body strong { font-family: 'Noto Serif JP', serif; font-size: 15px; font-weight: 600; letter-spacing: 0.04em; }
+    .contact-form-cta .ccta-body em { font-size: 12px; font-style: normal; opacity: 0.8; letter-spacing: 0.02em; }
+    .contact-form-cta .ccta-arrow { font-size: 18px; opacity: 0.6; }
+    .contact-form-cta:hover .ccta-arrow { opacity: 1; }
+
     .contact-block .mail-line a {
       color: var(--gold);
       text-decoration: none;
@@ -1604,6 +1626,15 @@
           </div>
         </div>
       </div>
+
+      <a href="/contact.html" class="contact-form-cta no-print">
+        <span class="ccta-icon">✉</span>
+        <span class="ccta-body">
+          <strong>お問い合わせフォームから連絡する</strong>
+          <em>ご質問・取材・採用などのお問い合わせ</em>
+        </span>
+        <span class="ccta-arrow">→</span>
+      </a>
     </section>
 
     <div class="doc-footer">
