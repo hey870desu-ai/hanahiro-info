@@ -7,7 +7,7 @@
 ## ページ一覧
 
 - `company.html` … 会社概要
-- `poem-asaka.html` … poem de riha 安積店 PR資料（2026年6月OPEN）
+- `poem-asaka.html` … poem de reha 安積店 PR資料（2026年6月OPEN）
 - `sougei-area-asaka.html` … 安積店 送迎エリア対話型マップ
 - `sougei-areas.html` … 全事業所の送迎エリア一覧
 

@@ -28,7 +28,7 @@ ctx.verify_mode = ssl.CERT_NONE
 # 4事業所の座標
 FACILITIES = [
     {
-        'name': 'poem de riha 安積店',
+        'name': 'poem de reha 安積店',
         'slug': 'asaka',
         'lat': 37.349490, 'lng': 140.362112,
         'range_sec': 420,  # 片道7分（東西方向）
