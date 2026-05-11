@@ -373,6 +373,117 @@
       margin: 0;
     }
 
+    /* 実績セクション（Track Record） */
+    .record-intro {
+      text-align: center;
+      font-size: 14px;
+      color: var(--ink-soft);
+      margin-bottom: 28px;
+      letter-spacing: 0.04em;
+      line-height: 1.85;
+    }
+    .record-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+    @media (min-width: 720px) {
+      .record-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    }
+    .record-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 26px 20px 24px;
+      text-align: center;
+    }
+    .record-card--accent {
+      background: linear-gradient(135deg, #1f2933, #2c3742);
+      border-color: transparent;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .record-card--accent::before {
+      content: "";
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(184,136,53,0.22), transparent 70%);
+      pointer-events: none;
+    }
+    .record-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 54px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+      line-height: 1;
+      position: relative;
+    }
+    .record-card--accent .record-num { color: var(--gold-soft); }
+    .record-unit {
+      font-size: 20px;
+      margin-left: 4px;
+      font-weight: 500;
+    }
+    .record-label {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      margin-top: 12px;
+      letter-spacing: 0.06em;
+      line-height: 1.6;
+      position: relative;
+    }
+    .record-card--accent .record-label { color: rgba(255,255,255,0.85); }
+    .record-note {
+      font-size: 11px;
+      color: var(--ink-mute);
+      text-align: center;
+      margin: 0 0 32px;
+      letter-spacing: 0.04em;
+      line-height: 1.7;
+    }
+    .voice-block { margin-top: 8px; }
+    .voice-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11pt;
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .voice-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 720px) {
+      .voice-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+    }
+    .voice-card {
+      background: #fbf9f4;
+      border-left: 3px solid var(--gold);
+      padding: 18px 22px 16px;
+    }
+    .voice-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13.5px;
+      line-height: 1.95;
+      color: var(--ink);
+      margin: 0 0 10px;
+      letter-spacing: 0.02em;
+    }
+    .voice-meta {
+      font-size: 11px;
+      color: var(--ink-mute);
+      text-align: right;
+      letter-spacing: 0.06em;
+      margin: 0;
+    }
+
     /* セクション写真 */
     .section-photo {
       display: block;
@@ -1217,6 +1328,21 @@
       .pillar-body { padding: 0 0 5mm; }
       .pillar-desc { font-size: 9.5pt; line-height: 1.7; padding: 3mm 6mm 0; }
 
+      /* 実績セクション */
+      .record-intro { font-size: 10pt; line-height: 1.75; margin-bottom: 6mm; }
+      .record-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 5mm; margin-bottom: 2mm; }
+      .record-card { padding: 8mm 5mm 7mm; }
+      .record-num { font-size: 38pt; }
+      .record-unit { font-size: 13pt; }
+      .record-label { font-size: 9pt; margin-top: 3mm; line-height: 1.55; }
+      .record-note { font-size: 8pt; margin: 0 0 6mm; }
+      .voice-block { margin-top: 2mm; }
+      .voice-eyebrow { font-size: 10pt; margin-bottom: 4mm; }
+      .voice-grid { grid-template-columns: 1fr 1fr !important; gap: 5mm; }
+      .voice-card { padding: 5mm 6mm 4mm; }
+      .voice-text { font-size: 9.5pt; line-height: 1.8; margin-bottom: 2.5mm; }
+      .voice-meta { font-size: 8pt; }
+
       /* セクション写真（バナー） */
       .section-photo { max-height: 50mm; margin: 0 0 4mm; }
       .section-photo-caption { margin: -3mm 0 4mm; font-size: 8pt; }
@@ -1565,10 +1691,56 @@
       </div>
     </section>
 
-    <!-- 03 設備一覧 -->
+    <!-- 03 開成店の実績 -->
     <section class="block">
       <div class="sec-head">
         <div class="sec-num">03</div>
+        <div class="sec-title-block">
+          <div class="sec-eyebrow">Track Record</div>
+          <div class="sec-title">動くから、変わる。— 開成店の3年間</div>
+        </div>
+      </div>
+
+      <p class="record-intro">
+        安積店と同形態のリハビリ専門デイサービス<strong style="color:var(--ink)">「ポエム開成」</strong>での実績が、私たちの取り組みを物語ります。
+      </p>
+
+      <div class="record-grid">
+        <div class="record-card">
+          <div class="record-num">220<span class="record-unit">名</span></div>
+          <div class="record-label">3年間のご利用者数</div>
+        </div>
+        <div class="record-card record-card--accent">
+          <div class="record-num">約80<span class="record-unit">%</span></div>
+          <div class="record-label">介護度の維持・向上率</div>
+        </div>
+        <div class="record-card">
+          <div class="record-num">21<span class="record-unit">名</span></div>
+          <div class="record-label">介護度が悪化された方<br>（約9.5%）</div>
+        </div>
+      </div>
+
+      <p class="record-note">※施設入所等で利用終了された方の区分変更申請は除く</p>
+
+      <div class="voice-block">
+        <div class="voice-eyebrow">Voices</div>
+        <div class="voice-grid">
+          <div class="voice-card">
+            <p class="voice-text">「体操やマシントレーニングが充実していて、今までよりも体を動かす機会が増えました。家族や友人に『姿勢が良くなったね』と言われると、ますます嬉しくなって運動頑張ってます。」</p>
+            <p class="voice-meta">82歳 女性 / ご利用期間 4年</p>
+          </div>
+          <div class="voice-card">
+            <p class="voice-text">「通い始めは上手く歩けなかったのに、最近は杖も使わずに歩けるようになりました。運動して帰る頃には、体も軽くなったように感じます。体操もしっかり楽しく出来るのが嬉しい。」</p>
+            <p class="voice-meta">75歳 女性 / ご利用期間 2年</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 設備一覧 -->
+    <section class="block">
+      <div class="sec-head">
+        <div class="sec-num">04</div>
         <div class="sec-title-block">
           <div class="sec-eyebrow">Equipment</div>
           <div class="sec-title">設備・トレーニング機器</div>
@@ -1642,10 +1814,10 @@
       </div>
     </section>
 
-    <!-- 04 1日の流れ -->
+    <!-- 05 1日の流れ -->
     <section class="block">
       <div class="sec-head">
-        <div class="sec-num">04</div>
+        <div class="sec-num">05</div>
         <div class="sec-title-block">
           <div class="sec-eyebrow">Daily Schedule</div>
           <div class="sec-title">半日の流れ</div>
@@ -1707,10 +1879,10 @@
       </div>
     </section>
 
-    <!-- 05 運営方針 -->
+    <!-- 06 運営方針 -->
     <section class="block">
       <div class="sec-head">
-        <div class="sec-num">05</div>
+        <div class="sec-num">06</div>
         <div class="sec-title-block">
           <div class="sec-eyebrow">Our Approach</div>
           <div class="sec-title">私たちの運営方針</div>
@@ -1739,10 +1911,10 @@
       </div>
     </section>
 
-    <!-- 06 ギャラリー -->
+    <!-- 07 ギャラリー -->
     <section class="block">
       <div class="sec-head">
-        <div class="sec-num">06</div>
+        <div class="sec-num">07</div>
         <div class="sec-title-block">
           <div class="sec-eyebrow">Gallery</div>
           <div class="sec-title">活動の様子</div>
@@ -1767,10 +1939,10 @@
       </div>
     </section>
 
-    <!-- 07 ご利用案内 -->
+    <!-- 08 ご利用案内 -->
     <section class="block">
       <div class="sec-head">
-        <div class="sec-num">07</div>
+        <div class="sec-num">08</div>
         <div class="sec-title-block">
           <div class="sec-eyebrow">Service Information</div>
           <div class="sec-title">ご利用案内</div>
@@ -1824,10 +1996,10 @@
       </div>
     </section>
 
-    <!-- 08 料金表（1/2） -->
+    <!-- 09 料金表（1/2） -->
     <section class="block" id="price">
       <div class="sec-head">
-        <div class="sec-num">08</div>
+        <div class="sec-num">09</div>
         <div class="sec-title-block">
           <div class="sec-eyebrow">Price List</div>
           <div class="sec-title">料金表</div>
@@ -1869,10 +2041,10 @@
 
     </section>
 
-    <!-- 08 料金表（2/2） -->
+    <!-- 09 料金表（2/2） -->
     <section class="block" id="price-2">
       <div class="sec-head">
-        <div class="sec-num">08</div>
+        <div class="sec-num">09</div>
         <div class="sec-title-block">
           <div class="sec-eyebrow">Price List</div>
           <div class="sec-title">料金表（つづき）</div>
@@ -1913,10 +2085,10 @@
       </div>
     </section>
 
-    <!-- 09 アクセス -->
+    <!-- 10 アクセス -->
     <section class="block">
       <div class="sec-head">
-        <div class="sec-num">09</div>
+        <div class="sec-num">10</div>
         <div class="sec-title-block">
           <div class="sec-eyebrow">Access</div>
           <div class="sec-title">アクセス</div>
@@ -1967,10 +2139,10 @@
       </div>
     </section>
 
-    <!-- 10 お問い合わせ -->
+    <!-- 11 お問い合わせ -->
     <section class="block">
       <div class="sec-head">
-        <div class="sec-num">10</div>
+        <div class="sec-num">11</div>
         <div class="sec-title-block">
           <div class="sec-eyebrow">Contact</div>
           <div class="sec-title">お問い合わせ・見学・無料体験のお申込み</div>
@@ -2000,10 +2172,10 @@
       </a>
     </section>
 
-    <!-- 11 採用情報 -->
+    <!-- 12 採用情報 -->
     <section class="block no-print">
       <div class="sec-head">
-        <div class="sec-num">11</div>
+        <div class="sec-num">12</div>
         <div class="sec-title-block">
           <div class="sec-eyebrow">Careers</div>
           <div class="sec-title">採用情報</div>
