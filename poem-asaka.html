@@ -1180,14 +1180,14 @@
 
       .print-cover, section.block, .concept-hero {
         width: 297mm;
-        height: 210mm;
+        min-height: 210mm;
         box-sizing: border-box;
         margin: 0 !important;
         padding: 14mm 22mm 16mm;
         page-break-before: always;
-        page-break-after: auto;
+        page-break-after: always;
         page-break-inside: avoid;
-        overflow: hidden;
+        overflow: visible !important;
         background: #fff;
         position: relative;
       }
