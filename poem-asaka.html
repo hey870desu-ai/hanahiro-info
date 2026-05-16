@@ -1169,12 +1169,12 @@
       .doc-head { display: none !important; }
       .no-print { display: none !important; }
 
-      /* radial-gradient光彩（オレンジ丸）を印刷時のみ非表示 */
+      /* radial-gradient光彩（オレンジ丸）を印刷時のみ透明化、ネイビーグラデーションは維持 */
       .pillar-head::before,
       .record-card--accent::before,
       .recruit-head::before,
       .contact-block::before {
-        display: none !important;
+        background: transparent !important;
       }
 
       /* concept-hero を縦中央に */
