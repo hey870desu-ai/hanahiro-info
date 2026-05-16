@@ -1169,7 +1169,7 @@
       .doc-head { display: none !important; }
       .no-print { display: none !important; }
 
-      /* 印刷時: ::before疑似要素を消し、本体に光彩を統合（プリンタ互換性向上） */
+      /* 印刷時: radial-gradient::beforeを消し、box-shadowで光彩を再現 */
       .pillar-head::before,
       .record-card--accent::before,
       .recruit-head::before,
@@ -1177,14 +1177,10 @@
         display: none !important;
       }
       .pillar-head,
-      .record-card--accent {
-        background: radial-gradient(circle at top right, rgba(184,136,53,0.22) 0%, rgba(31,41,51,0) 40%), linear-gradient(135deg, #1f2933, #2c3742) !important;
-      }
-      .recruit-head {
-        background: radial-gradient(circle at top right, rgba(184,136,53,0.22) 0%, rgba(31,41,51,0) 40%), linear-gradient(135deg, #1f2933, #2c3742) !important;
-      }
+      .record-card--accent,
+      .recruit-head,
       .contact-block {
-        background: radial-gradient(circle at top right, rgba(184,136,53,0.25) 0%, rgba(31,41,51,0) 40%), linear-gradient(135deg, #1f2933, #2c3742) !important;
+        box-shadow: inset -40px -20px 80px rgba(184,136,53,0.15) !important;
       }
 
       /* concept-hero を縦中央に */
