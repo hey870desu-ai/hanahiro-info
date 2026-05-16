@@ -1169,6 +1169,13 @@
       .doc-head { display: none !important; }
       .no-print { display: none !important; }
 
+      /* 印刷時: radial-gradient光彩（オレンジ丸の原因）を非表示 */
+      .pillar-head::before,
+      .record-card--accent::before,
+      .recruit-head::before,
+      .contact-block::before {
+        display: none !important;
+      }
 
       /* concept-hero を縦中央に */
       .concept-hero {
