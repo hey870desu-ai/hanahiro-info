@@ -1169,12 +1169,12 @@
       .doc-head { display: none !important; }
       .no-print { display: none !important; }
 
-      /* 印刷時: radial-gradient光彩（オレンジ丸の原因）を非表示 */
+      /* 印刷時: radial-gradient の transparent→紺色透明に置換（オレンジ丸防止） */
       .pillar-head::before,
       .record-card--accent::before,
       .recruit-head::before,
       .contact-block::before {
-        display: none !important;
+        background: radial-gradient(circle, rgba(184,136,53,0.22), rgba(31,41,51,0) 70%) !important;
       }
 
       /* concept-hero を縦中央に */
