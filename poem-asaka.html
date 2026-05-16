@@ -1169,11 +1169,11 @@
       .doc-head { display: none !important; }
       .no-print { display: none !important; }
 
-      /* ネイビーグラデーションは維持、radial-gradient光彩（オレンジ丸）のみ非表示 */
-      .pillar-head::after,
-      .record-card--accent::after,
-      .recruit-head::after,
-      .contact-block::after {
+      /* radial-gradient光彩（オレンジ丸）を印刷時のみ非表示 */
+      .pillar-head::before,
+      .record-card--accent::before,
+      .recruit-head::before,
+      .contact-block::before {
         display: none !important;
       }
 
