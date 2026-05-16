@@ -1160,14 +1160,29 @@
     @media print {
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
-      body { margin: 0; padding: 0; background: #fff; font-size: 10pt; color: var(--ink); }
+      body { margin: 0; padding: 0; background: #fff; font-size: 10pt; color: var(--ink); height: auto !important; }
 
       .topbar, .doc-footer { display: none !important; }
-      .container { max-width: 100%; padding: 0; margin: 0; }
+      .container { max-width: 100%; padding: 0; margin: 0; height: auto !important; overflow: visible !important; }
       a { color: var(--ink); text-decoration: none; }
 
       .doc-head { display: none !important; }
       .no-print { display: none !important; }
+
+      /* グラデーション→フラットカラー（印刷崩れ防止） */
+      .pillar-head,
+      .record-card--accent,
+      .recruit-head,
+      .contact-block {
+        background: #1f2933 !important;
+      }
+      /* radial-gradient の光彩丸を全て非表示 */
+      .pillar-head::after,
+      .record-card--accent::after,
+      .recruit-head::after,
+      .contact-block::after {
+        display: none !important;
+      }
 
       /* concept-hero を縦中央に */
       .concept-hero {
