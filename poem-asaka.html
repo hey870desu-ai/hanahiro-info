@@ -1169,12 +1169,22 @@
       .doc-head { display: none !important; }
       .no-print { display: none !important; }
 
-      /* 印刷時: radial-gradient の transparent→紺色透明に置換（オレンジ丸防止） */
+      /* 印刷時: ::before疑似要素を消し、本体に光彩を統合（プリンタ互換性向上） */
       .pillar-head::before,
       .record-card--accent::before,
       .recruit-head::before,
       .contact-block::before {
-        background: radial-gradient(circle, rgba(184,136,53,0.22), rgba(31,41,51,0) 70%) !important;
+        display: none !important;
+      }
+      .pillar-head,
+      .record-card--accent {
+        background: radial-gradient(circle at top right, rgba(184,136,53,0.22) 0%, rgba(31,41,51,0) 40%), linear-gradient(135deg, #1f2933, #2c3742) !important;
+      }
+      .recruit-head {
+        background: radial-gradient(circle at top right, rgba(184,136,53,0.22) 0%, rgba(31,41,51,0) 40%), linear-gradient(135deg, #1f2933, #2c3742) !important;
+      }
+      .contact-block {
+        background: radial-gradient(circle at top right, rgba(184,136,53,0.25) 0%, rgba(31,41,51,0) 40%), linear-gradient(135deg, #1f2933, #2c3742) !important;
       }
 
       /* concept-hero を縦中央に */
