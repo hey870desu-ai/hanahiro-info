@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>A4ポスター ｜ poem de reha 安積店</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ink: #1f2933;
+      --ink-soft: #3a414d;
+      --ink-mute: #5d6068;
+      --gold: #a87827;
+      --gold-soft: #d6b072;
+      --gold-pale: #f4ead6;
+      --paper: #fbf9f4;
+      --line: #e3dccc;
+      --line-soft: #f0eadb;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif;
+      background: #e8e6e0;
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      line-break: strict;
+    }
+
+    /* ===== 画面用の案内（印刷されない） ===== */
+    .screen-note {
+      max-width: 794px;
+      margin: 24px auto 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 14px 20px;
+      font-size: 13px;
+      line-height: 1.9;
+      color: var(--ink-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .screen-note strong { color: var(--ink); }
+    .screen-note button {
+      background: var(--ink); color: #fff;
+      border: none; padding: 10px 22px;
+      font-size: 14px; letter-spacing: 0.1em;
+      cursor: pointer; white-space: nowrap;
+    }
+    .screen-note button:hover { background: var(--gold); }
+
+    /* ===== A4縦 1枚 ===== */
+    .sheet {
+      width: 210mm;
+      height: 296mm;
+      margin: 0 auto 32px;
+      background: var(--paper);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+      padding: 9mm 10mm 7mm;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    /* ゴールドのコーナー飾り（LP表紙と同じ意匠） */
+    .sheet::before, .sheet::after {
+      content: "";
+      position: absolute;
+      width: 12mm; height: 12mm;
+      border: 1px solid var(--gold);
+    }
+    .sheet::before { top: 5mm; left: 5mm; border-right: none; border-bottom: none; }
+    .sheet::after { bottom: 5mm; right: 5mm; border-left: none; border-top: none; }
+
+    /* ヘッダー */
+    .p-eyebrow {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 19pt;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--ink);
+      text-align: center;
+      margin: 1mm 0 2.5mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4mm;
+    }
+    .p-eyebrow::before, .p-eyebrow::after {
+      content: "";
+      width: 16mm;
+      height: 1px;
+      background: var(--gold);
+    }
+    .p-open-badge {
+      position: absolute;
+      top: 3mm; right: 3mm;
+      background: rgba(31,41,51,0.92);
+      color: #fff;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 9pt;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      padding: 1.5mm 4mm;
+      z-index: 2;
+    }
+
+    /* 店名 */
+    .p-brand { text-align: center; margin-bottom: 1mm; }
+    .p-brand .en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30pt;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+      line-height: 1.05;
+    }
+    .p-brand .ja {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12pt;
+      font-weight: 600;
+      letter-spacing: 0.5em;
+      color: var(--gold);
+      margin-top: 1mm;
+    }
+
+    /* キャッチコピー */
+    .p-catch {
+      text-align: center;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 43pt;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      line-height: 1.25;
+      color: var(--ink);
+      margin: 2mm 0 2.5mm;
+      white-space: nowrap;
+    }
+    .p-catch .accent { color: var(--gold); }
+    .p-lead {
+      text-align: center;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12pt;
+      font-weight: 500;
+      line-height: 1.75;
+      color: var(--ink);
+      letter-spacing: 0.04em;
+      margin-bottom: 3.5mm;
+    }
+
+    /* 写真 */
+    .p-photo-wrap { position: relative; margin-bottom: 3.5mm; }
+    .p-photo {
+      display: block;
+      width: 100%;
+      height: 47mm;
+      object-fit: cover;
+      object-position: center 42%;
+      border: 1px solid var(--line);
+    }
+
+    /* 実績帯 */
+    .p-record {
+      background: linear-gradient(135deg, #1f2933, #2c3742);
+      box-shadow: inset -40px -20px 80px rgba(184,136,53,0.15);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 3.5mm 6mm 3mm;
+      margin-bottom: 3.5mm;
+      gap: 6mm;
+    }
+    .p-record .rc { flex: 1; text-align: center; }
+    .p-record .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30pt;
+      font-weight: 600;
+      color: var(--gold-soft);
+      line-height: 1;
+    }
+    .p-record .num .unit { font-size: 14pt; margin-left: 1mm; }
+    .p-record .lbl {
+      font-size: 9pt;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      margin-top: 1.2mm;
+      color: #fff;
+    }
+    .p-record .rnote {
+      flex: 1.15;
+      font-size: 8pt;
+      line-height: 1.65;
+      color: #d8dde4;
+      letter-spacing: 0.02em;
+      border-left: 1px solid rgba(255,255,255,0.25);
+      padding-left: 5mm;
+    }
+    .p-record .rnote strong { color: #fff; }
+
+    /* 3つの柱 */
+    .p-pillars {
+      display: flex;
+      gap: 3mm;
+      margin-bottom: 3.5mm;
+    }
+    .p-pillar {
+      flex: 1;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: 2px solid var(--gold);
+      padding: 2.8mm 3.5mm 2.6mm;
+      text-align: center;
+    }
+    .p-pillar .pn {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10pt;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+    }
+    .p-pillar .pt {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11.5pt;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0.8mm 0 1mm;
+      letter-spacing: 0.02em;
+    }
+    .p-pillar .pd {
+      font-size: 8.5pt;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    /* ご案内情報 */
+    .p-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5mm 3mm;
+      margin-bottom: 3.5mm;
+    }
+    .p-info .cell {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 2.4mm 4mm 2.2mm;
+      display: flex;
+      align-items: flex-start;
+      gap: 3.5mm;
+    }
+    .p-info .k {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      padding-top: 0.3mm;
+    }
+    .p-info .v {
+      font-size: 9.5pt;
+      color: var(--ink);
+      line-height: 1.6;
+      font-weight: 500;
+    }
+    .p-info .v small {
+      display: block;
+      font-size: 8.5pt;
+      font-weight: 400;
+      color: var(--ink-soft);
+      letter-spacing: 0.02em;
+    }
+
+    /* CTA */
+    .p-cta {
+      background: linear-gradient(135deg, #1f2933, #2c3742);
+      box-shadow: inset -40px -20px 80px rgba(184,136,53,0.18);
+      color: #fff;
+      padding: 4.5mm 7mm 4mm;
+      display: flex;
+      align-items: center;
+      gap: 6mm;
+      margin-bottom: 3mm;
+    }
+    .p-cta-main { flex: 1; text-align: center; }
+    .p-cta-copy {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15.5pt;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      margin-bottom: 1.6mm;
+    }
+    .p-cta-copy .free { color: var(--gold-soft); }
+    .p-tel {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 31pt;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      color: #fff;
+    }
+    .p-tel .tel-mark {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12pt;
+      font-weight: 700;
+      vertical-align: middle;
+      margin-right: 2.5mm;
+      color: var(--gold-soft);
+    }
+    .p-cta-sub {
+      font-size: 9pt;
+      color: #d8dde4;
+      margin-top: 1.6mm;
+      letter-spacing: 0.06em;
+    }
+    .p-cta-qr {
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .p-cta-qr img {
+      width: 21mm; height: 21mm;
+      background: #fff;
+      padding: 1.2mm;
+      display: block;
+    }
+    .p-cta-qr .qt {
+      font-size: 7.5pt;
+      color: #d8dde4;
+      margin-top: 1.2mm;
+      letter-spacing: 0.08em;
+    }
+
+    /* フッター */
+    .p-foot {
+      margin-top: auto;
+      text-align: center;
+      font-size: 9pt;
+      color: var(--ink-soft);
+      letter-spacing: 0.06em;
+      line-height: 1.6;
+    }
+    .p-foot strong {
+      font-family: 'Noto Serif JP', serif;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ===== 印刷 ===== */
+    @page { size: A4 portrait; margin: 0; }
+    @media print {
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: #fff; }
+      .screen-note { display: none !important; }
+      .sheet {
+        margin: 0;
+        box-shadow: none;
+        width: 210mm;
+        height: 296mm;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen-note">
+    <div>
+      <strong>A4ポスター（セブンイレブン掲示用）</strong><br>
+      印刷設定：A4・縦・カラー／余白「なし」または「最小」／<strong>「背景のグラフィック」をON</strong>／ヘッダーとフッターはOFF
+    </div>
+    <button onclick="window.print()">印刷 / PDF保存</button>
+  </div>
+
+  <div class="sheet">
+
+    <div class="p-eyebrow">リハビリ専門デイサービス</div>
+
+    <div class="p-brand">
+      <div class="en">poem de reha</div>
+      <div class="ja">安 積 店</div>
+    </div>
+
+    <div class="p-catch">動くから <span class="accent">変わる</span></div>
+
+    <p class="p-lead">マシーントレーニングと楽しい脳トレで、「動ける身体」を取り戻す。<br>半日型のリハビリ専門デイサービスです。</p>
+
+    <div class="p-photo-wrap">
+      <div class="p-open-badge">2026年6月 安積町にオープン</div>
+      <img class="p-photo" src="photos/asaka-exercise-wide.jpg" alt="安積店フロアでの体操の様子">
+    </div>
+
+    <div class="p-record">
+      <div class="rc">
+        <div class="num">約80<span class="unit">%</span></div>
+        <div class="lbl">介護度の維持・向上率</div>
+      </div>
+      <div class="rc">
+        <div class="num">220<span class="unit">名</span></div>
+        <div class="lbl">3年間のご利用者数</div>
+      </div>
+      <div class="rnote">
+        安積店と同形態のリハビリ専門デイサービス<strong>「ポエム開成」（郡山市）3年間の実績</strong>です。<br>
+        ※施設入所等で利用終了された方の区分変更申請は除く
+      </div>
+    </div>
+
+    <div class="p-pillars">
+      <div class="p-pillar">
+        <div class="pn">01</div>
+        <div class="pt">マシーントレーニング</div>
+        <div class="pd">高齢者の体格・筋力に配慮した専用マシン9種。負荷を細かく調整でき、無理なく安全に。</div>
+      </div>
+      <div class="p-pillar">
+        <div class="pn">02</div>
+        <div class="pt">楽しい脳トレ</div>
+        <div class="pd">間違い探しやクイズ形式。身体と頭を同時に使う二重課題で、認知機能の維持をサポート。</div>
+      </div>
+      <div class="p-pillar">
+        <div class="pn">03</div>
+        <div class="pt">AI解析プログラム</div>
+        <div class="pd">常駐の柔道整復師が、AIの解析結果も活用してその日に最適な運動メニューをご提案。</div>
+      </div>
+    </div>
+
+    <div class="p-info">
+      <div class="cell">
+        <div class="k">営業時間</div>
+        <div class="v">午前の部　9:00〜12:05<br>午後の部　13:25〜16:30<small>月〜金（祝日も営業）／土・日・年末年始休業</small></div>
+      </div>
+      <div class="cell">
+        <div class="k">対　象</div>
+        <div class="v">要支援1・2／要介護1〜5の方<small>要支援：郡山市・須賀川市／要介護：原則郡山市</small></div>
+      </div>
+      <div class="cell">
+        <div class="k">料　金</div>
+        <div class="v">介護保険適用（1〜3割負担）<small>詳しくはお気軽にお問い合わせください</small></div>
+      </div>
+      <div class="cell">
+        <div class="k">送　迎</div>
+        <div class="v">ご自宅まで送迎あり<small>郡山市・須賀川市（エリア外もご相談ください）</small></div>
+      </div>
+    </div>
+
+    <div class="p-cta">
+      <div class="p-cta-main">
+        <div class="p-cta-copy">見学・<span class="free">無料体験</span> 受付中</div>
+        <div class="p-tel"><span class="tel-mark">TEL</span>024-954-5586</div>
+        <div class="p-cta-sub">担当：豊嶋（とよしま）／ 体験は1回無料 ／ ご家族・ケアマネジャーの方もどうぞ<br>介護保険のことがよく分からない方も、まずはお電話ください</div>
+      </div>
+      <div class="p-cta-qr">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=6&data=https%3A%2F%2Finfo.hana-hiro.com%2Fpoem-asaka.html" alt="QR 詳しい案内ページ">
+        <div class="qt">詳しい料金・写真はWebで</div>
+      </div>
+    </div>
+
+    <div class="p-foot">
+      <strong>poem de reha 安積店</strong>　〒963-0102 郡山市安積町笹川字四角担3-1<br>
+      運営：株式会社はなひろ　https://info.hana-hiro.com/poem-asaka.html
+    </div>
+
+  </div>
+
+</body>
+</html>
