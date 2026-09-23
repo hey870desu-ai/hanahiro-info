@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>FAXチラシ（ケアマネジャー様宛・白黒） ｜ poem de reha 安積店</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Noto+Serif+JP:wght@700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* FAX前提：本文はすべて純黒・薄字禁止・本文8pt禁止 */
+    body {
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', sans-serif;
+      background: #e8e6e0;
+      color: #000;
+      -webkit-font-smoothing: antialiased;
+      line-break: strict;
+    }
+
+    /* ===== 画面用の案内（印刷されない） ===== */
+    .screen-note {
+      max-width: 794px;
+      margin: 24px auto 16px;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 14px 20px;
+      font-size: 13px;
+      line-height: 1.9;
+      color: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .screen-note strong { color: #000; }
+    .screen-note button {
+      background: #000; color: #fff;
+      border: none; padding: 10px 22px;
+      font-size: 14px; letter-spacing: 0.1em;
+      cursor: pointer; white-space: nowrap;
+    }
+
+    /* ===== A4縦 1枚（白黒・FAX向け） ===== */
+    .sheet {
+      width: 210mm;
+      height: 296mm;
+      margin: 0 auto 32px;
+      background: #fff;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+      padding: 6mm 11mm 4mm;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 宛先・送信元ヘッダー */
+    .f-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 3px solid #000;
+      padding-bottom: 1.2mm;
+      margin-bottom: 2.4mm;
+    }
+    .f-head .to {
+      font-size: 12.5pt;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .f-head .from {
+      font-size: 9pt;
+      text-align: right;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+    .f-head .from strong { font-weight: 700; }
+
+    /* ブランド見出し */
+    .f-eyebrow {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15pt;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4mm;
+      margin-bottom: 1.4mm;
+    }
+    .f-eyebrow::before, .f-eyebrow::after {
+      content: "";
+      width: 15mm;
+      height: 2.4px;
+      background: #000;
+    }
+    .f-brand { text-align: center; margin-bottom: 1mm; }
+    .f-brand .en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 33pt;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.02;
+    }
+    .f-brand .ja {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13pt;
+      font-weight: 900;
+      letter-spacing: 0.4em;
+      margin-top: 0.6mm;
+    }
+    .f-brand .open {
+      display: inline-block;
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      border: 2px solid #000;
+      padding: 0.5mm 3.5mm;
+      margin-top: 2mm;
+    }
+
+    .f-catch {
+      text-align: center;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 36pt;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      line-height: 1.12;
+      margin: 1.4mm 0 1.2mm;
+      white-space: nowrap;
+    }
+    .f-lead {
+      text-align: center;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 11.5pt;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.4mm;
+    }
+
+    /* 実績（出典を帯の外・白地黒字で明示） */
+    .f-rec-cap {
+      text-align: center;
+      font-size: 9.5pt;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 1mm;
+    }
+    .f-record {
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.6mm 7mm 2.4mm;
+      margin-bottom: 1.2mm;
+      gap: 12mm;
+    }
+    .f-record .rc { text-align: center; }
+    .f-record .num {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 25pt;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+    }
+    .f-record .num .unit { font-size: 14pt; margin-left: 0.5mm; }
+    .f-record .lbl {
+      font-size: 10pt;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-top: 1.2mm;
+    }
+    .f-rec-note {
+      font-size: 9pt;
+      font-weight: 500;
+      line-height: 1.45;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.4mm;
+      padding-left: 1mm;
+    }
+
+    /* 3つの柱 */
+    .f-pillars {
+      display: flex;
+      gap: 3.5mm;
+      margin-bottom: 1.4mm;
+    }
+    .f-pillar {
+      flex: 1;
+      border: 2px solid #000;
+      border-top: 4px solid #000;
+      padding: 2.1mm 3.6mm 1.9mm;
+      text-align: center;
+    }
+    .f-pillar .pn {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12pt;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+    }
+    .f-pillar .pt {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12.5pt;
+      font-weight: 900;
+      margin: 0.6mm 0 1.2mm;
+      letter-spacing: 0.01em;
+    }
+    .f-pillar .pd {
+      font-size: 9pt;
+      line-height: 1.6;
+      text-align: left;
+      font-weight: 500;
+      color: #000;
+    }
+
+    /* 半日の流れ */
+    .f-flow {
+      border: 2px solid #000;
+      padding: 1.7mm 4mm 1.5mm;
+      margin-bottom: 1.4mm;
+      text-align: center;
+    }
+    .f-flow .fl-line {
+      font-size: 10pt;
+      font-weight: 700;
+      line-height: 1.65;
+    }
+    .f-flow .fl-line .fl-label {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      margin-right: 2.5mm;
+      border-bottom: 2.4px solid #000;
+      padding-bottom: 0.3mm;
+    }
+    .f-flow .fl-line .ar { font-weight: 900; margin: 0 1mm; }
+    .f-flow .fl-water {
+      font-size: 9pt;
+      margin-top: 1mm;
+      font-weight: 500;
+      color: #000;
+    }
+
+    /* ご案内情報 2×2 */
+    .f-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2mm 3.5mm;
+      margin-bottom: 1.4mm;
+    }
+    .f-info .cell {
+      border: 2px solid #000;
+      padding: 1.7mm 4mm 1.5mm;
+      display: flex;
+      align-items: flex-start;
+      gap: 3.5mm;
+    }
+    .f-info .k {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 10pt;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+      background: #000;
+      color: #fff;
+      padding: 0.9mm 2.6mm;
+      flex-shrink: 0;
+    }
+    .f-info .v {
+      font-size: 10pt;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+    .f-info .v small {
+      display: block;
+      font-size: 9pt;
+      font-weight: 500;
+      color: #000;
+      letter-spacing: 0;
+      margin-top: 0.4mm;
+    }
+
+    /* CTA（黒ベタ＋白抜き） */
+    .f-cta {
+      background: #000;
+      color: #fff;
+      padding: 3mm 6mm 2.8mm;
+      display: flex;
+      align-items: center;
+      gap: 5mm;
+      margin-bottom: 1.4mm;
+    }
+    .f-cta-main { flex: 1; text-align: center; }
+    .f-cta-copy {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 16pt;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.8mm;
+    }
+    .f-cta-copy .free { text-decoration: underline; text-underline-offset: 3px; }
+    .f-tel-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 6mm;
+      line-height: 1;
+    }
+    .f-tel {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 27pt;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+    }
+    .f-tel .mk {
+      font-size: 11pt;
+      font-weight: 900;
+      margin-right: 1.5mm;
+      letter-spacing: 0.04em;
+    }
+    .f-fax {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 17pt;
+      font-weight: 900;
+      letter-spacing: 0.01em;
+    }
+    .f-fax .mk {
+      font-size: 10pt;
+      font-weight: 900;
+      margin-right: 1.2mm;
+      letter-spacing: 0.04em;
+    }
+    .f-cta-sub {
+      font-size: 9.5pt;
+      font-weight: 700;
+      margin-top: 1.8mm;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+    }
+    .f-cta-qr {
+      text-align: center;
+      flex-shrink: 0;
+      background: #fff;
+      padding: 2mm 2mm 1.4mm;
+    }
+    .f-cta-qr img {
+      width: 25mm; height: 25mm;
+      display: block;
+    }
+    .f-cta-qr .qt {
+      font-size: 8pt;
+      font-weight: 700;
+      color: #000;
+      margin-top: 1mm;
+      letter-spacing: 0.02em;
+    }
+
+    /* フッター */
+    .f-foot {
+      text-align: center;
+      font-size: 9.5pt;
+      line-height: 1.6;
+      letter-spacing: 0.03em;
+      font-weight: 500;
+    }
+    .f-foot strong {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 700;
+    }
+    .f-foot .url { font-weight: 700; }
+    .f-optout {
+      margin-top: auto;
+      padding-top: 1.8mm;
+      border-top: 1.6px solid #000;
+      font-size: 9pt;
+      font-weight: 500;
+      color: #000;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .f-optout strong { font-weight: 700; }
+
+    /* ===== 印刷 ===== */
+    @page { size: A4 portrait; margin: 0; }
+    @media print {
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      body { background: #fff; }
+      .screen-note { display: none !important; }
+      .sheet { margin: 0; box-shadow: none; width: 210mm; height: 296mm; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen-note">
+    <div>
+      <strong>FAXチラシ（居宅介護支援事業所・ケアマネジャー様宛／白黒）</strong><br>
+      白黒・A4縦1枚。印刷設定：A4・縦／白黒可／余白「なし」または「最小」／ヘッダーとフッターはOFF
+    </div>
+    <button onclick="window.print()">印刷 / PDF保存</button>
+  </div>
+
+  <div class="sheet">
+
+    <div class="f-head">
+      <div class="to">居宅介護支援事業所　ケアマネジャー様</div>
+      <div class="from">
+        送信元：<strong>株式会社はなひろ　poem de reha 安積店</strong>（郡山市安積町）<br>
+        <strong>TEL 024-954-5586 ／ FAX 024-954-9373</strong>　※本状はA4・1枚です
+      </div>
+    </div>
+
+    <div class="f-eyebrow">リハビリ専門デイサービス（半日型）</div>
+
+    <div class="f-brand">
+      <div class="en">poem de reha</div>
+      <div class="ja">安 積 店</div>
+      <div class="open">2026年6月　安積町にオープンしました</div>
+    </div>
+
+    <div class="f-catch">動くから　変わる</div>
+
+    <p class="f-lead">マシーントレーニングと楽しい脳トレで、「動ける身体」を取り戻す。<br>半日型のリハビリ専門デイサービスです。</p>
+
+    <div class="f-rec-cap">姉妹店「ポエム開成」（郡山市）3年間の実績</div>
+    <div class="f-record">
+      <div class="rc">
+        <div class="num">約80<span class="unit">%</span></div>
+        <div class="lbl">介護度の維持・向上率</div>
+      </div>
+      <div class="rc">
+        <div class="num">220<span class="unit">名</span></div>
+        <div class="lbl">3年間のご利用者数</div>
+      </div>
+    </div>
+    <div class="f-rec-note">※ 上記は安積店と同形態の姉妹店「ポエム開成」（郡山市）における3年間の実績です。施設入所等で利用を終了された方の区分変更申請は除きます。</div>
+
+    <div class="f-pillars">
+      <div class="f-pillar">
+        <div class="pn">01</div>
+        <div class="pt">マシーントレーニング</div>
+        <div class="pd">高齢者の体格・筋力に配慮した専用マシン9種。負荷を細かく調整でき、無理なく安全に。</div>
+      </div>
+      <div class="f-pillar">
+        <div class="pn">02</div>
+        <div class="pt">楽しい脳トレ</div>
+        <div class="pd">間違い探しやクイズ形式。身体と頭を同時に使う二重課題で、認知機能の維持をサポート。</div>
+      </div>
+      <div class="f-pillar">
+        <div class="pn">03</div>
+        <div class="pt">AI解析プログラム</div>
+        <div class="pd">常駐の柔道整復師が、AIの解析結果も活用してその日に最適な運動メニューをご提案。</div>
+      </div>
+    </div>
+
+    <div class="f-flow">
+      <div class="fl-line"><span class="fl-label">半日の流れ</span>体調チェック<span class="ar">→</span>朝の会<span class="ar">→</span>準備体操<span class="ar">→</span>マシーントレーニング<span class="ar">→</span>脳トレ<span class="ar">→</span>集団体操<span class="ar">→</span>整理体操<span class="ar">→</span>終わりの会</div>
+      <div class="fl-water">水分補給には「日本トリム」の電解水素水をご用意しています</div>
+    </div>
+
+    <div class="f-info">
+      <div class="cell">
+        <div class="k">営業時間</div>
+        <div class="v">午前の部　9:00〜12:05／午後の部　13:25〜16:30<small>月〜金（祝日も営業）／土・日・年末年始休業</small></div>
+      </div>
+      <div class="cell">
+        <div class="k">対　象</div>
+        <div class="v">要支援1・2／要介護1〜5の方<small>要支援＝郡山市・須賀川市<br>要介護＝原則郡山市</small></div>
+      </div>
+      <div class="cell">
+        <div class="k">料　金</div>
+        <div class="v">介護保険適用（1〜3割負担）<small>詳しくはお気軽にお問い合わせください</small></div>
+      </div>
+      <div class="cell">
+        <div class="k">送　迎</div>
+        <div class="v">ご自宅まで送迎あり<small>送迎範囲は上記の対象エリアに準じます（エリア外もご相談ください）</small></div>
+      </div>
+    </div>
+
+    <div class="f-cta">
+      <div class="f-cta-main">
+        <div class="f-cta-copy">見学・<span class="free">無料体験</span>　受付中</div>
+        <div class="f-tel-row">
+          <span class="f-tel"><span class="mk">TEL</span>024-954-5586</span>
+          <span class="f-fax"><span class="mk">FAX</span>024-954-9373</span>
+        </div>
+        <div class="f-cta-sub">担当：豊嶋（とよしま）／ 体験は1回無料 ／ ご紹介・見学のご相談を承ります</div>
+      </div>
+      <div class="f-cta-qr">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=360x360&margin=0&ecc=H&data=https%3A%2F%2Finfo.hana-hiro.com%2Fpoem-asaka.html" alt="QR 詳しい案内ページ">
+        <div class="qt">詳しくはWebで</div>
+      </div>
+    </div>
+
+    <div class="f-foot">
+      <strong>poem de reha 安積店</strong>　〒963-0102 福島県郡山市安積町笹川字四角担3-1<br>
+      運営：株式会社はなひろ　<span class="url">https://info.hana-hiro.com/poem-asaka.html</span>
+    </div>
+
+    <div class="f-optout">本FAXは介護保険事業所様宛にお送りしています。ご案内が不要の場合は <strong>024-954-5586</strong> までお知らせください。</div>
+
+  </div>
+
+</body>
+</html>

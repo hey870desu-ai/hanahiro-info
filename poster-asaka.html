@@ -134,12 +134,12 @@
     .p-catch {
       text-align: center;
       font-family: 'Noto Serif JP', serif;
-      font-size: 43pt;
+      font-size: 41pt;
       font-weight: 700;
       letter-spacing: 0.06em;
       line-height: 1.25;
       color: var(--ink);
-      margin: 2mm 0 2.5mm;
+      margin: 1.5mm 0 2mm;
       white-space: nowrap;
     }
     .p-catch .accent { color: var(--gold); }
@@ -151,15 +151,15 @@
       line-height: 1.75;
       color: var(--ink);
       letter-spacing: 0.04em;
-      margin-bottom: 3.5mm;
+      margin-bottom: 2.5mm;
     }
 
     /* 写真 */
-    .p-photo-wrap { position: relative; margin-bottom: 3.5mm; }
+    .p-photo-wrap { position: relative; margin-bottom: 2.8mm; }
     .p-photo {
       display: block;
       width: 100%;
-      height: 47mm;
+      height: 41mm;
       object-fit: cover;
       object-position: center 42%;
       border: 1px solid var(--line);
@@ -172,8 +172,8 @@
       color: #fff;
       display: flex;
       align-items: center;
-      padding: 3.5mm 6mm 3mm;
-      margin-bottom: 3.5mm;
+      padding: 2.8mm 6mm 2.4mm;
+      margin-bottom: 2.8mm;
       gap: 6mm;
     }
     .p-record .rc { flex: 1; text-align: center; }
@@ -207,14 +207,14 @@
     .p-pillars {
       display: flex;
       gap: 3mm;
-      margin-bottom: 3.5mm;
+      margin-bottom: 3mm;
     }
     .p-pillar {
       flex: 1;
       background: #fff;
       border: 1px solid var(--line);
       border-top: 2px solid var(--gold);
-      padding: 2.8mm 3.5mm 2.6mm;
+      padding: 2.3mm 3.5mm 2.1mm;
       text-align: center;
     }
     .p-pillar .pn {
@@ -238,17 +238,48 @@
       text-align: left;
     }
 
+    /* 半日の流れ（1行フロー） */
+    .p-flow {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 1.8mm 4mm 1.6mm;
+      margin-bottom: 2.8mm;
+      text-align: center;
+    }
+    .p-flow .fl-line {
+      font-size: 8pt;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+      line-height: 1.7;
+      white-space: nowrap;
+    }
+    .p-flow .fl-line .fl-label {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-right: 2.5mm;
+    }
+    .p-flow .fl-line .ar { color: var(--gold-soft); margin: 0 0.6mm; }
+    .p-flow .fl-water {
+      font-size: 7.5pt;
+      color: var(--ink-soft);
+      margin-top: 0.8mm;
+      letter-spacing: 0.02em;
+    }
+
     /* ご案内情報 */
     .p-info {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2.5mm 3mm;
-      margin-bottom: 3.5mm;
+      gap: 2.2mm 3mm;
+      margin-bottom: 2.8mm;
     }
     .p-info .cell {
       background: #fff;
       border: 1px solid var(--line);
-      padding: 2.4mm 4mm 2.2mm;
+      padding: 2mm 4mm 1.8mm;
       display: flex;
       align-items: flex-start;
       gap: 3.5mm;
@@ -281,7 +312,7 @@
       background: linear-gradient(135deg, #1f2933, #2c3742);
       box-shadow: inset -40px -20px 80px rgba(184,136,53,0.18);
       color: #fff;
-      padding: 4.5mm 7mm 4mm;
+      padding: 3.6mm 7mm 3.2mm;
       display: flex;
       align-items: center;
       gap: 6mm;
@@ -425,6 +456,11 @@
         <div class="pt">AI解析プログラム</div>
         <div class="pd">常駐の柔道整復師が、AIの解析結果も活用してその日に最適な運動メニューをご提案。</div>
       </div>
+    </div>
+
+    <div class="p-flow">
+      <div class="fl-line"><span class="fl-label">半日の流れ</span>体調チェック<span class="ar">→</span>朝の会<span class="ar">→</span>準備体操<span class="ar">→</span>マシーントレーニング<span class="ar">→</span>脳トレ<span class="ar">→</span>集団体操<span class="ar">→</span>整理体操<span class="ar">→</span>終わりの会</div>
+      <div class="fl-water">水分補給には「日本トリム」の電解水素水をご用意しています</div>
     </div>
 
     <div class="p-info">
