@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<!--
+  会社概要（company.html）専用の共有画像 photos/ogp-company.jpg の元（1200×630）。
+  photos/ogp.jpg（他の6ページと共用・志の一文入り）と同じ見た目で、一文だけビジョンにしたもの。
+
+  書き出し方（Mac）:
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars \
+      --window-size=1200,630 --virtual-time-budget=5000 --screenshot=/tmp/ogp-company.png \
+      "file://$HOME/hanahiro-info/tools/ogp-company.html"
+    → PNG を JPEG（品質90前後）にして photos/ogp-company.jpg に置く。
+  ⚠ 中身を変えたらファイル名を変える（LINE・Facebook は同じURLの画像を長く覚えている）
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(180deg, #faf8f3 0%, #f5ead6 100%);
+    font-family: 'Noto Serif JP', serif;
+  }
+  .corner { position: absolute; width: 60px; height: 60px; border: 0 solid #b88835; }
+  .tl { top: 40px; left: 40px; border-top-width: 2px; border-left-width: 2px; }
+  .br { bottom: 39px; right: 39px; border-bottom-width: 2px; border-right-width: 2px; }
+  .stack {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo { display: block; width: 720px; height: auto; background: #fff; }
+  .vision {
+    margin-top: 42px;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.04em;
+    color: #252522;
+    text-align: center;
+  }
+  .sub {
+    margin-top: 16px;
+    font-size: 17px;
+    letter-spacing: 0.03em;
+    color: #b88835;
+  }
+</style>
+</head>
+<body>
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+  <div class="stack">
+    <img class="logo" src="../photos/hanahiro_logo_transparent.png" alt="">
+    <div class="vision">世代を超えて、豊かな人生のバトンをつなぐ。<br>これからの人生に、もっと希望と選択肢を。</div>
+    <div class="sub">株式会社はなひろ&ensp;CORPORATE PROFILE</div>
+  </div>
+</body>
+</html>

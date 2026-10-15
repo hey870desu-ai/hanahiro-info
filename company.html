@@ -7,19 +7,20 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <title>会社概要｜株式会社はなひろ</title>
-  <meta name="description" content="株式会社はなひろの会社概要。福島県須賀川市・郡山市・矢祭町でデイサービス、リハビリ専門デイサービス、介護予防事業を運営。DX推進事業 CARE DESIGN WORKS で介護記録システム「space」、介護・障がい福祉向けeラーニング「福ひろばラーニング」を自社開発。">
+  <meta name="description" content="株式会社はなひろの会社概要。福島県須賀川市・郡山市・矢祭町でデイサービス、リハビリ専門デイサービス、介護予防事業を運営。DX推進事業 CARE DESIGN WORKS で、ケアの記録と小口現金の管理の業務システム「space」、介護・障がい福祉向けeラーニング「福ひろばラーニング」を自社開発。">
   <meta property="og:title" content="株式会社はなひろ 会社概要">
-  <meta property="og:description" content="豊かなシルバーライフの創造から、日本中に夢と元気を。">
+  <meta property="og:description" content="世代を超えて、豊かな人生のバトンをつなぐ。これからの人生に、もっと希望と選択肢を。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://info.hana-hiro.com/company.html">
   <meta property="og:site_name" content="株式会社はなひろ">
-  <meta property="og:image" content="https://info.hana-hiro.com/photos/ogp.jpg">
+  <!-- 共有画像は会社概要専用（ビジョン入り）。ogp.jpg は他の6ページと共用で、志の一文が入っている -->
+  <meta property="og:image" content="https://info.hana-hiro.com/photos/ogp-company.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="株式会社はなひろ 会社概要">
-  <meta name="twitter:description" content="豊かなシルバーライフの創造から、日本中に夢と元気を。">
-  <meta name="twitter:image" content="https://info.hana-hiro.com/photos/ogp.jpg">
+  <meta name="twitter:description" content="世代を超えて、豊かな人生のバトンをつなぐ。これからの人生に、もっと希望と選択肢を。">
+  <meta name="twitter:image" content="https://info.hana-hiro.com/photos/ogp-company.jpg">
   <link rel="canonical" href="https://info.hana-hiro.com/company.html">
   <script type="application/ld+json">
   {
@@ -29,8 +30,8 @@
     "alternateName": "はなひろ",
     "url": "https://info.hana-hiro.com/",
     "logo": "https://info.hana-hiro.com/photos/hanahiro_logo_transparent.png",
-    "image": "https://info.hana-hiro.com/photos/ogp.jpg",
-    "description": "福島県須賀川市・郡山市・矢祭町でデイサービス・リハビリ専門デイサービス・介護予防事業を運営。DX推進事業 CARE DESIGN WORKS では介護記録システム『space』、介護・障がい福祉向けeラーニング『福ひろばラーニング』を自社開発。",
+    "image": "https://info.hana-hiro.com/photos/ogp-company.jpg",
+    "description": "福島県須賀川市・郡山市・矢祭町でデイサービス・リハビリ専門デイサービス・介護予防事業を運営。DX推進事業 CARE DESIGN WORKS では、ケアの記録と小口現金の管理の業務システム『space』、介護・障がい福祉向けeラーニング『福ひろばラーニング』を自社開発。",
     "foundingDate": "2013-09",
     "founder": { "@type": "Person", "name": "塙 啓之" },
     "email": "info@hana-hiro.com",
@@ -340,6 +341,12 @@
       color: var(--ink-soft);
       line-height: 2;
     }
+    /* 理念の文で、折り返してよい区切り。区切りの途中では折り返さない */
+    .ph { display: inline-block; }
+    @media (max-width: 640px) {
+      .hero { padding: 44px 22px; }
+      .hero-mission .text { font-size: 16px; }
+    }
 
     /* セクション共通 */
     section.block {
@@ -620,13 +627,11 @@
     }
 
     /* プロダクトカード */
+    /* 画面では1列（space は中で2つのサービスを横に並べる）。印刷では space を広めの2列 */
     .product-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 18px;
-    }
-    @media (min-width: 700px) {
-      .product-grid { grid-template-columns: 1fr 1fr; }
     }
     .product-card {
       background: #fff;
@@ -657,6 +662,25 @@
       margin-bottom: 18px;
       flex: 1;
       text-wrap: pretty;
+    }
+    /* space の2つのサービス。⚠ .pc-sub は表紙（会 社 概 要）が使っているので別の名前にしている */
+    .product-card .svc-lead { margin-bottom: 16px; }
+    .svc-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media (min-width: 700px) {
+      .svc-list { grid-template-columns: 1fr 1fr; gap: 28px; }
+    }
+    .svc strong {
+      display: block;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
     }
     .product-card .pc-link {
       font-family: 'Cormorant Garamond', serif;
@@ -906,6 +930,8 @@
         letter-spacing: 0.4em;
         color: var(--ink-mute);
       }
+      /* 理念のページ：画面用の金の角（36px角・枠線）が残ると、ページ下の文字が左下で細く折れる */
+      .hero::after { width: auto; height: auto; border: none; }
 
       /* === 表紙：縦flexで3段に整列 === */
       .print-cover {
@@ -1003,23 +1029,23 @@
         color: var(--gold);
       }
 
-      /* hero（理念）— 中央寄せ・3つの想いを横並び */
+      /* hero（理念）— 中央寄せ・4つを2列×2段（経営理念｜ミッション／ビジョン｜志） */
       .hero {
         text-align: center;
-        padding: 32mm 22mm 26mm;
+        padding: 26mm 22mm 22mm;
         display: block;
       }
       .hero-eyebrow { font-size: 9.5pt; margin-bottom: 3mm; display: block; }
-      .hero-title { font-size: 20pt; margin-bottom: 16mm; display: block; }
-      .hero-mission {
-        display: inline-block;
-        width: 30%;
-        vertical-align: top;
-        margin: 0 1% 6mm;
-        text-align: center;
+      .hero-title { font-size: 20pt; margin-bottom: 11mm; display: block; }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 14mm;
+        row-gap: 8mm;
       }
-      .hero-mission .ml { font-size: 9pt; margin-bottom: 4mm; }
-      .hero-mission .mj { font-size: 11pt; margin-bottom: 5mm; }
+      .hero-mission { margin: 0; text-align: center; }
+      .hero-mission .ml { font-size: 9pt; margin-bottom: 2mm; }
+      .hero-mission .mj { font-size: 11pt; margin-bottom: 3mm; }
       .hero-mission .text { font-size: 11pt; line-height: 1.9; }
       .hero-credo-bottom {
         display: block;
@@ -1074,22 +1100,30 @@
         margin-left: 4mm;
       }
 
-      /* 05 DX推進事業 */
+      /* 05 DX推進事業 — 帯は「左＝見出し／右＝説明」で高さを抑え、space（2つのサービス）を広めの列に */
       .cdw-banner {
         background: #1f2933 !important;
         color: #fff !important;
-        padding: 8mm 14mm;
+        padding: 7mm 14mm;
         margin-bottom: 5mm;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 12mm;
+        align-items: center;
       }
       .cdw-banner .cdw-text { color: #d8dde4 !important; }
+      .cdw-eyebrow, .cdw-title, .cdw-jp { grid-column: 1; }
       .cdw-eyebrow { font-size: 9pt; margin-bottom: 3mm; }
-      .cdw-title { font-size: 22pt; margin-bottom: 2mm; }
-      .cdw-jp { font-size: 10pt; margin-bottom: 5mm; }
-      .cdw-text { font-size: 9.5pt; line-height: 1.85; }
-      .product-grid { grid-template-columns: 1fr 1fr; gap: 6mm; }
-      .product-card { padding: 8mm; }
+      .cdw-title { font-size: 20pt; margin-bottom: 2mm; }
+      .cdw-jp { font-size: 10pt; margin-bottom: 0; }
+      .cdw-text { grid-column: 2; grid-row: 1 / span 3; max-width: none; font-size: 9.5pt; line-height: 1.85; }
+      .product-grid { grid-template-columns: 2fr 1fr; gap: 6mm; }
+      .product-card { padding: 7mm 8mm; }
       .product-card h4 { font-size: 12.5pt; margin-bottom: 6mm; }
       .product-card .pc-desc { font-size: 9.5pt; line-height: 1.8; margin-bottom: 0; }
+      .product-card .svc-lead { margin-bottom: 3mm; }
+      .svc-list { grid-template-columns: 1fr; gap: 3mm; }
+      .svc strong { font-size: 10pt; margin-bottom: 0.5mm; }
 
       /* 06 沿革 — 2列タイムライン */
       .timeline {
@@ -1254,8 +1288,8 @@
 
       <div class="pc-bottom">
         <div class="pc-tagline">
-          豊かなシルバーライフの創造から、<br>
-          日本中に夢と元気を。
+          世代を超えて、豊かな人生のバトンをつなぐ。<br>
+          これからの人生に、もっと希望と選択肢を。
         </div>
         <div style="margin-top:14mm">
           <div class="pc-name">株式会社はなひろ</div>
@@ -1271,32 +1305,43 @@
       <div class="gold-line"></div>
     </div>
 
-    <!-- ヒーロー：理念 -->
+    <!-- ヒーロー：理念
+         並びと文言は社内の組織図（hanahiro-training/org-map.html「はなひろの原点」）と同じ。
+         経営理念→ミッション→ビジョン→志（2026-07-13 塙さんと専務が策定）。
+         .ph は折り返してよい区切り。スマホで言葉の途中で折れないようにするためのもの -->
     <div class="hero">
       <div class="hero-eyebrow">OUR PHILOSOPHY</div>
       <h2 class="hero-title">私たちの想い</h2>
 
-      <div class="hero-mission">
-        <div class="ml">Mission</div>
-        <div class="mj">経営理念</div>
-        <div class="text">地域と共に育ち、貢献する。<br>情熱を持ってこの仕事を愛し、<br>関わる人全てに感謝と感動を。</div>
-      </div>
+      <div class="hero-grid">
+        <div class="hero-mission">
+          <div class="ml">Philosophy</div>
+          <div class="mj">経営理念</div>
+          <div class="text"><span class="ph">地域と共に育ち、</span><span class="ph">貢献する。</span><br><span class="ph">情熱を持って</span><span class="ph">この仕事を愛し、</span><br><span class="ph">関わる人全てに</span><span class="ph">感謝と感動を。</span></div>
+        </div>
 
-      <div class="hero-mission">
-        <div class="ml">Vision</div>
-        <div class="mj">使命感</div>
-        <div class="text">豊かなシルバーライフの創造から、<br>日本中に夢と元気を。</div>
-      </div>
+        <div class="hero-mission">
+          <div class="ml">Mission</div>
+          <div class="mj">ミッション</div>
+          <div class="text"><span class="ph">介護・福祉・リハビリ・DX・</span><span class="ph">地域づくりを通じて、</span><br><span class="ph">一人ひとりの健康と</span><span class="ph">自立を支え、</span><br><span class="ph">医療・介護に</span><span class="ph">頼りきらない暮らしを広げ、</span><br><span class="ph">次の世代へ</span><span class="ph">希望ある未来を</span><span class="ph">つないでいく。</span></div>
+        </div>
 
-      <div class="hero-mission">
-        <div class="ml">Aspiration</div>
-        <div class="mj">志</div>
-        <div class="text">憧れの職業ナンバーワンを目指して。</div>
+        <div class="hero-mission">
+          <div class="ml">Vision</div>
+          <div class="mj">ビジョン</div>
+          <div class="text"><span class="ph">世代を超えて、</span><span class="ph">豊かな人生のバトンをつなぐ。</span><br><span class="ph">これからの人生に、</span><span class="ph">もっと希望と選択肢を。</span></div>
+        </div>
+
+        <div class="hero-mission">
+          <div class="ml">Aspiration</div>
+          <div class="mj">志</div>
+          <div class="text"><span class="ph">豊かなシルバーライフの</span><span class="ph">創造から、</span><br><span class="ph">日本中に</span><span class="ph">夢と元気を。</span><br><span class="ph">憧れの職業</span><span class="ph">ナンバーワンを目指して。</span></div>
+        </div>
       </div>
 
       <div class="hero-credo-bottom">
-        はなひろは「みんなの会社」です。CREDO（行動指針）はメンバーたちの手で作られました。<br>
-        一人ひとりが自分ごととして仕事に向き合い、共に成長していく ─ そんな会社を目指しています。
+        <span class="ph">はなひろは「みんなの会社」です。</span><span class="ph">CREDO（行動指針）は</span><span class="ph">メンバーたちの手で作られました。</span><br>
+        <span class="ph">一人ひとりが自分ごととして</span><span class="ph">仕事に向き合い、</span><span class="ph">会社に愛着を持ち、</span><span class="ph">共に成長していく ─</span> <span class="ph">そんな会社を目指しています。</span>
       </div>
     </div>
 
@@ -1377,7 +1422,7 @@
         <tr><th>代表者</th><td>代表取締役 塙 啓之</td></tr>
         <tr><th>役員</th><td>専務取締役 豊嶋 久美子</td></tr>
         <tr><th>本社所在地</th><td>〒962-0015<br>福島県須賀川市日向町22 サンディアスB102号室</td></tr>
-        <tr><th>従業員数</th><td>32名</td></tr>
+        <tr><th>従業員数</th><td>27名</td></tr>
         <tr><th>事業内容</th><td>
           地域密着型通所介護／リハビリ専門デイサービス／<br>
           矢祭町介護予防事業（通所C型・介護予防教室）／<br>
@@ -1481,13 +1526,25 @@
         <div class="product-card">
           <div class="pc-tag">PRODUCT 01</div>
           <div class="pc-title-row">
-            <h4>介護記録システム space<span class="nw" style="font-size:10pt;color:var(--ink-mute);font-weight:400;margin-left:6px">（スペース）</span></h4>
+            <h4>space<span class="nw" style="font-size:10pt;color:var(--ink-mute);font-weight:400;margin-left:6px">（スペース）</span></h4>
             <div class="print-only-qr inline">
               <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fspace-care.jp%2F" alt="QR space">
             </div>
           </div>
+          <!-- ⚠ 書いてよい範囲は space-care.jp に合わせる。ケアの記録は「自社で運用中・外部へのご提供は準備中」まで（時期・料金は書かない）。
+               効果の数字は「計画書60分→1分・担当者会議の記録20分→1分（手作業と比べた目安）」だけ -->
           <div class="pc-desc">
-            通所介護のための記録・計画書作成システム。申込から体験、アセスメント、通所介護計画書までを一つの流れでつなぎます。計画書はご本人への聞き取りからAIが下書きを作り、職員が確認して仕上げることで、作成時間が60分から1分に。サービス担当者会議の記録も、録音から下書きを起こすことで20分が1分になりました（手作業と比べた自社での目安）。2026年9月より自社事業所で本格運用しています。
+            <p class="svc-lead">介護・福祉の事業所のための業務システム。<span class="nw">2つのサービスがあります。</span></p>
+            <div class="svc-list">
+              <div class="svc">
+                <strong>ケアの記録と書類</strong>
+                <p>申込から体験、アセスメント、通所介護計画書までをひと続きで扱います。ご本人への聞き取りから計画書の下書きを、担当者会議の録音から記録の下書きをAIが用意し、職員が確認して仕上げます。計画書の作成は60分が1分に、担当者会議の記録は20分が1分になりました（手作業と比べた自社での目安）。2026年9月より自社事業所で本格運用し、外部へのご提供も<span class="nw">準備中です。</span></p>
+              </div>
+              <div class="svc">
+                <strong>小口現金の管理</strong>
+                <p>買った人がレシートの写真をLINEで送るだけで、日付・金額・店名を読み取り、事業所ごとの小口現金出納帳にします。外部の事業者さまにもご提供しています。</p>
+              </div>
+            </div>
           </div>
           <a href="https://space-care.jp/" class="pc-link" target="_blank" rel="noopener">View Service &nbsp;&rarr;</a>
         </div>
