@@ -528,6 +528,8 @@
       flex: 1;
       color: var(--ink);
     }
+    /* かっこ書きの途中で折り返さない（スマホで「（定員10／名）」と割れるのを防ぐ） */
+    .nw { white-space: nowrap; }
 
     /* 沿革タイムライン */
     .timeline {
@@ -654,6 +656,7 @@
       line-height: 1.85;
       margin-bottom: 18px;
       flex: 1;
+      text-wrap: pretty;
     }
     .product-card .pc-link {
       font-family: 'Cormorant Garamond', serif;
@@ -1075,7 +1078,7 @@
       .cdw-banner {
         background: #1f2933 !important;
         color: #fff !important;
-        padding: 10mm 14mm;
+        padding: 8mm 14mm;
         margin-bottom: 5mm;
       }
       .cdw-banner .cdw-text { color: #d8dde4 !important; }
@@ -1086,7 +1089,7 @@
       .product-grid { grid-template-columns: 1fr 1fr; gap: 6mm; }
       .product-card { padding: 8mm; }
       .product-card h4 { font-size: 12.5pt; margin-bottom: 6mm; }
-      .product-card .pc-desc { font-size: 9.5pt; line-height: 1.8; }
+      .product-card .pc-desc { font-size: 9.5pt; line-height: 1.8; margin-bottom: 0; }
 
       /* 06 沿革 — 2列タイムライン */
       .timeline {
@@ -1138,9 +1141,9 @@
         padding-top: 4mm;
       }
 
-      /* 07 関連事業 — 4列でコンパクトに */
+      /* 07 関連事業 — 2件なので2列 */
       section.block:nth-of-type(7) .related-grid {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
       }
       /* 08 加入団体 — 3列 */
       section.block:nth-of-type(8) .related-grid {
@@ -1376,7 +1379,7 @@
         <tr><th>本社所在地</th><td>〒962-0015<br>福島県須賀川市日向町22 サンディアスB102号室</td></tr>
         <tr><th>従業員数</th><td>32名</td></tr>
         <tr><th>事業内容</th><td>
-          地域密着型通所介護／リハビリ専門デイサービス／自費訪問リハビリ／<br>
+          地域密着型通所介護／リハビリ専門デイサービス／<br>
           矢祭町介護予防事業（通所C型・介護予防教室）／<br>
           矢祭町デイサービスセンター舘山荘 指定管理／<br>
           介護福祉ポータルサイト「福ひろば」運営／<br>
@@ -1404,7 +1407,7 @@
           <div class="office-number">No. 01</div>
           <div class="office-name">デイサービスセンターポエム郡山賀庄</div>
           <div class="office-sub">介護保険事業所番号　0770305233</div>
-          <div class="office-row"><span class="lbl">Service</span><span class="val">地域密着型通所介護（定員10名）</span></div>
+          <div class="office-row"><span class="lbl">Service</span><span class="val">地域密着型通所介護<span class="nw">（定員10名）</span></span></div>
           <div class="office-row"><span class="lbl">Address</span><span class="val">〒963-8844 郡山市賀庄153-5</span></div>
           <div class="office-row"><span class="lbl">Tel</span><span class="val">024-973-8701</span></div>
           <div class="office-row"><span class="lbl">Fax</span><span class="val">024-973-8702</span></div>
@@ -1418,7 +1421,7 @@
           <div class="office-number">No. 02</div>
           <div class="office-name">リハビリ専門デイサービス ポエム開成</div>
           <div class="office-sub">介護保険事業所番号　0790300834</div>
-          <div class="office-row"><span class="lbl">Service</span><span class="val">リハビリ専門デイサービス（定員18名）</span></div>
+          <div class="office-row"><span class="lbl">Service</span><span class="val">リハビリ専門デイサービス<span class="nw">（定員18名）</span></span></div>
           <div class="office-row"><span class="lbl">Address</span><span class="val">〒963-8852 郡山市台新1-31-3 サンパレス國分1-東号室</span></div>
           <div class="office-row"><span class="lbl">Tel</span><span class="val">024-983-5951</span></div>
           <div class="office-row"><span class="lbl">Fax</span><span class="val">024-983-5952</span></div>
@@ -1432,21 +1435,23 @@
           <div class="office-number">No. 03</div>
           <div class="office-name">矢祭町デイサービスセンター舘山荘</div>
           <div class="office-sub">介護保険事業所番号　0792900060　／　矢祭町指定管理（令和6年4月〜）</div>
-          <div class="office-row"><span class="lbl">Service</span><span class="val">地域密着型通所介護（定員18名）／ 矢祭町介護予防事業（通所C型「ライフアップ」・介護予防教室「ワンアップ」）</span></div>
+          <div class="office-row"><span class="lbl">Service</span><span class="val">地域密着型通所介護<span class="nw">（定員18名）</span>／ 矢祭町介護予防事業（通所C型「ライフアップ」・介護予防教室「ワンアップ」）</span></div>
           <div class="office-row"><span class="lbl">Address</span><span class="val">〒963-5118 福島県東白川郡矢祭町大字東舘字舘3-1</span></div>
           <div class="office-row"><span class="lbl">Tel/Fax</span><span class="val">0247-46-3186</span></div>
           <div class="office-row"><span class="lbl">Mail</span><span class="val">tateyamasou@hana-hiro.com</span></div>
           <div class="office-row"><span class="lbl">Instagram</span><span class="val"><a href="https://www.instagram.com/tateyama_day/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:1px">@tateyama_day &nbsp;&#x2197;</a></span></div>
         </div>
 
-        <div class="office-card upcoming">
+        <div class="office-card">
           <!-- 写真：photos/poem-asaka.jpg -->
           <!-- <img class="office-photo" src="photos/poem-asaka.jpg" alt="poem de reha 安積店"> -->
           <div class="office-number">No. 04</div>
-          <div class="office-name">poem de reha 安積店<span class="badge-upcoming">2026.06.01 OPEN</span></div>
-          <div class="office-sub">リハビリ専門デイサービス（ポエム開成と同形態）</div>
-          <div class="office-row"><span class="lbl">Address</span><span class="val">郡山市安積町笹川字四角坦3-1</span></div>
-          <div class="office-row"><span class="lbl">Tel</span><span class="val">080-2848-2881（担当：豊嶋）</span></div>
+          <div class="office-name">poem de reha 安積店</div>
+          <div class="office-sub">介護保険事業所番号　0790301394</div>
+          <div class="office-row"><span class="lbl">Service</span><span class="val">リハビリ専門デイサービス<span class="nw">（定員10名）</span></span></div>
+          <div class="office-row"><span class="lbl">Address</span><span class="val">〒963-0102 郡山市安積町笹川字四角坦3-1</span></div>
+          <div class="office-row"><span class="lbl">Tel</span><span class="val">024-954-5586</span></div>
+          <div class="office-row"><span class="lbl">Fax</span><span class="val">024-954-9373</span></div>
           <div class="office-row"><span class="lbl">Mail</span><span class="val">toyoshima@hana-hiro.com</span></div>
         </div>
 
@@ -1476,11 +1481,15 @@
         <div class="product-card">
           <div class="pc-tag">PRODUCT 01</div>
           <div class="pc-title-row">
-            <h4>介護記録システム space<span style="font-size:10pt;color:var(--ink-mute);font-weight:400;margin-left:6px">（スペース）</span></h4>
+            <h4>介護記録システム space<span class="nw" style="font-size:10pt;color:var(--ink-mute);font-weight:400;margin-left:6px">（スペース）</span></h4>
+            <div class="print-only-qr inline">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fspace-care.jp%2F" alt="QR space">
+            </div>
           </div>
           <div class="pc-desc">
-            通所介護のための記録・計画書作成システム。申込から体験、アセスメント、通所介護計画書までを一つの流れでつなぎます。計画書はAIが下書きを作り、職員が確認して仕上げる形にすることで、作成にかかる時間を数時間から2分に短縮。サービス担当者会議の記録も、録音から起こすことで30分が1分になりました。2026年9月より自社事業所で本格運用しています。
+            通所介護のための記録・計画書作成システム。申込から体験、アセスメント、通所介護計画書までを一つの流れでつなぎます。計画書はご本人への聞き取りからAIが下書きを作り、職員が確認して仕上げることで、作成時間が60分から1分に。サービス担当者会議の記録も、録音から下書きを起こすことで20分が1分になりました（手作業と比べた自社での目安）。2026年9月より自社事業所で本格運用しています。
           </div>
+          <a href="https://space-care.jp/" class="pc-link" target="_blank" rel="noopener">View Service &nbsp;&rarr;</a>
         </div>
 
         <div class="product-card">
@@ -1531,10 +1540,6 @@
           <div class="timeline-text">介護福祉ポータルサイト「福ひろば in 郡山」を郡山市と協働開設</div>
         </div>
         <div class="timeline-item">
-          <div class="timeline-date">2018.06 ／ 平成30年6月</div>
-          <div class="timeline-text">介護保険外サービス 訪問リハビリ「re:Life Koriyama」開設</div>
-        </div>
-        <div class="timeline-item">
           <div class="timeline-date">2018.11 ／ 平成30年11月</div>
           <div class="timeline-text">リハビリ専門デイサービス ポエム開成 を M&amp;A により事業承継</div>
         </div>
@@ -1558,9 +1563,9 @@
           <div class="timeline-date">2025.10 ／ 令和7年10月</div>
           <div class="timeline-text">DX推進事業「CARE DESIGN WORKS」開始 ／ 自社プロダクト「福ひろばラーニング」「介護記録システム space」を開発</div>
         </div>
-        <div class="timeline-item future">
-          <div class="timeline-date">2026.06.01 ／ 令和8年6月1日</div>
-          <div class="timeline-text">poem de reha 安積店 開設予定（リハビリ専門デイサービス）</div>
+        <div class="timeline-item">
+          <div class="timeline-date">2026.06 ／ 令和8年6月</div>
+          <div class="timeline-text">poem de reha 安積店 開設（リハビリ専門デイサービス）</div>
         </div>
       </div>
     </section>
@@ -1591,18 +1596,6 @@
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fwww.fukuhiroba.com%2Fkoriyama%2Ffukushi%2F" alt="QR 福ひろば 障がい福祉版">
           </div>
         </a>
-        <a class="related-item" href="https://www.fukuhiroba.com/fukuhiroba2.0/" target="_blank" rel="noopener">
-          <strong>福ひろば 2.0</strong>
-          <div class="desc">介護福祉・障がい福祉に関わる方々の交流の場（バーチャル空間）</div>
-          <div class="url-line">www.fukuhiroba.com/fukuhiroba2.0/</div>
-          <div class="print-only-qr small">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https%3A%2F%2Fwww.fukuhiroba.com%2Ffukuhiroba2.0%2F" alt="QR 福ひろば 2.0">
-          </div>
-        </a>
-        <div class="related-item">
-          <strong>re:Life Koriyama（リライフ郡山）</strong>
-          <div class="desc">介護保険外の自費訪問リハビリ</div>
-        </div>
       </div>
     </section>
 
